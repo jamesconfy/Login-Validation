@@ -1,2 +1,2 @@
 # Login_Validation
-Code to validate a user
+Codes to take, validate and store a user using Python(Flask)
