@@ -32,8 +32,9 @@ def signup():
     form = RegistratrionForm(request.form)
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        
-        db.CreateProfile(form.username.data, hashed_password, form.email.data, form.first_name.data, form.last_name.data, form.dob.data, form.address.data, form.city.data, form.state.data, form.phone_no.data)
+
+        state = request.form['state']
+        db.CreateProfile(form.username.data, hashed_password, form.email.data, form.first_name.data, form.last_name.data, form.dob.data, form.address.data, form.city.data, state, form.phone_no.data)
         flash('Account Created Successfully', 'success')
         return redirect(url_for('login'))
     return render_template('signup.html', title='Sign Up', form=form)

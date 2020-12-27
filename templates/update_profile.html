@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block CSS %}
+    <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/update.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container signup-container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-sm-12 col-md-10">
+            <div class="card signup-card">
+                <div class="card-block">
+                    <div class="signup-details">
+                        <label for="login-details" class="signup-details">Update Profile</label>
+                    </div>
+                    <form class="signup-form" id="first_form" action="http://localhost:5000/update?id={{data[0]}}"
+                        method="POST">
+                        <div class="form-group">
+                            <label for="login-details" class="username-details">Username</label>
+							<input type="text" value="{{ data[1] }}" class="form-control" id="u_name1" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-details" class="password-details">Password</label>
+                            <input type="password" value="{{ data[2] }}" class="form-control" id="p_word1" name="password"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must contain Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-details" class="email-details">Email</label>
+                            <input type="email" value="{{ data[3] }}" class="form-control" id="e_address" name=email required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-details" class="f_name-details">First Name</label>
+                            <input type="text" value="{{ data[4] }}" class="form-control" id="f_name1" name="first_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-details" class="l_name-details">Last Name</label>
+                            <input type="text" value="{{ data[5] }}" class="form-control" id="l_name1" name="last_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-details" class="dob-details">Date of Birth</label>
+                            <input type="text" value="{{ data[6] }}" class="form-control" id="dob1" name="dob">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-details" class="address-details">Address</label>
+                            <input type="text" value="{{ data[7] }}" class="form-control" id="address1" name="address">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-details" class="city-details">City</label>
+                            <input type="text" value="{{ data[8] }}" class="form-control" id="city1" name="city">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-details" class="state-details">State</label>
+                            <input type="text" value="{{ data[9] }}" class="form-control" id="state1" name="state">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-details" class="number-details">Phone Number</label>
+                            <input type="text" value="{{ data[10] }}" class="form-control" id="phone_no1" name="phone_no">
+                        </div>
+                        <div class="submit_class">
+                            <input value="Submit" type="submit" class="btn signup-btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock content %}
