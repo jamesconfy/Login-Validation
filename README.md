@@ -23,4 +23,5 @@ $ pip install flask-bcrypt
 $ pip install flask-wtf
 $ pip install flask-login
 $ pip install sqlite3
+$ pip install datetime(used for setting cookie time)
 ```
