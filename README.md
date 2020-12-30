@@ -19,8 +19,8 @@ You can either use pip to install each individual module or download from source
 You can do this by using the process below on your command line:
 ```sh
 $ pip install flask
-$ pip install flask_bcrypt
-$ pip install flask_wtf
-$ pip install flask_login
+$ pip install flask-bcrypt
+$ pip install flask-wtf
+$ pip install flask-login
 $ pip install sqlite3
 ```
