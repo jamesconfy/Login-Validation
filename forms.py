@@ -10,7 +10,7 @@ class RegistratrionForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Password Must Match')])
     first_name = StringField('First Name', validators=[DataRequired()])
     last_name = StringField('Last Name', validators=[DataRequired()])
-    dob = DateField('Date of Birth', format="%d-%m-%Y")
+    dob = DateField('Date of Birth')
     address = StringField('Address')
     city = StringField('City')
     state = StringField('State')
@@ -36,20 +36,27 @@ class RegistratrionForm(FlaskForm):
         numb = phone_no.data
         if len(numb) == 14:
             numb1 = numb[0:6]
-            if numb1 != "+23470" or numb1 != "+23480" or numb1 != "+23490" or numb1 != "+23481":
-                raise ValidationError('Invalid Phone Number, Number should start with +23470/+23480/+23490/+23481')
+            if numb1 != "+23470":
+                if numb1 != "+23480":
+                    if numb1 != "+23490":
+                        if numb1 != "+23481":
+                            raise ValidationError('Invalid Phone Number, Number should start with +23470/+23480/+23490/+23481')
             #elif numb1 == "+23491":
              #   raise ValidationError('No number starting with +23491')
 
         elif len(numb) == 11:
             numb1 = numb[0:4]
-            if numb1 != "070" or numb1 != "080" or numb1 != "090" or numb1 != "081":
-                raise ValidationError('Invalid Phone Number, Number should start with 070/080/090/081')
+            if numb1 != "070":
+                if numb1 != "080":
+                    if numb1 != "090":
+                        if numb1 != "081":
+                            raise ValidationError('Invalid Phone Number, Number should start with 070/080/090/081')
             #elif numb1 == "091":
              #   raise ValidationError('No number starting with 091')
         
         elif len(numb) >= 15 or len(numb) <= 10:
-            raise ValidationError('Number Should be in format +234XXXXXXXXXX or 0XXXXXXXXXX')
+            if len(numb) >= 1:
+                raise ValidationError('Number Should be in format +234XXXXXXXXXX or 0XXXXXXXXXX')
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])

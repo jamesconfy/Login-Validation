@@ -114,30 +114,22 @@
                                     {% endfor %}
                                 </div>
                                 {% else %}
-                                {{ form.dob(class="form-control") }}
+                                {{ form.dob(class="form-control", type="date") }}
                                 {% endif %}
                             </div>
                             <div class="form-group">
-                                {{ form.address.label(class="form-control-label") }}
-                                {{ form.address(class="form-control") }}
-                            </div>
-                            <div class="form-group">
-                                {{ form.city.label(class="form-control-label") }}
-                                {{ form.city(class="form-control") }}
-                            </div>
-                            <div class="form-group">
                                 {{ form.state.label(class="form-control-label")}}
-                                <select class="custom-select" id="inputGroupSelect01" name="state">
+                                <select class="custom-select" id="inputGroupSelect01" name="state" onChange="changecat(this.value)">
                                     <option selected>None....</option>
                                     <option value="Abia">Abia</option>
                                     <option value="Adamawa">Adamawa</option>
-                                    <option value="Akwa Ibom">Akwa Ibom</option>
+                                    <option value="Akwa_Ibom">Akwa Ibom</option>
                                     <option value="Anambra">Anambra</option>
                                     <option value="Bauchi">Bauchi</option>
                                     <option value="Bayelsa">Bayelsa</option>
                                     <option value="Benue">Benue</option>
                                     <option value="Borno">Borno</option>
-                                    <option value="Cross River">Cross River</option>
+                                    <option value="Cross_River">Cross River</option>
                                     <option value="Delta">Delta</option>
                                     <option value="Ebonyi">Ebonyi</option>
                                     <option value="Edo">Edo</option>
@@ -166,10 +158,19 @@
                                     <option value="Taraba">Taraba</option>
                                     <option value="Yobe">Yobe</option>
                                     <option value="Zamfara">Zamfara</option>
-                                    <option value="Federal Capital Territory (Abuja)">Federal Capital Territory (Abuja)
-                                    </option>
+                                    <option value="Abuja">Federal Capital Territory (Abuja)</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                {{ form.city.label(class="form-control-label") }}
+                                <select class="custom-select" id="city_options" name="city">
+                                    <option value="" disabled selected>None</option>
+                                </select>
+                            </div>     
+                            <div class="form-group">
+                                {{ form.address.label(class="form-control-label") }}
+                                {{ form.address(class="form-control") }}
+                            </div>                       
                             <div class="form-group">
                                 {{ form.phone_no.label(class="form-control-label") }}
                                 {% if form.phone_no.errors %}
