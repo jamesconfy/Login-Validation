@@ -39,4 +39,4 @@ This should start up the server in debug mode but in a lazy environment(not good
 
 Preview of what to expect after successfully running the code:
 
-![Image showing preview of code to see](https://github.com/jamesconfy/Login_Validation/static/assests/login_validation.png)
+![Image showing preview of code to see](https://github.com/jamesconfy/Login_Validation/blob/main/static/assests/login_validation.PNG?raw=true)
