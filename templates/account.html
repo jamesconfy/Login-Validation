@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block CSS %}
-<link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/viewprofile.css') }}">
+<link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/account.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -119,7 +119,7 @@
           </div>
         </fieldset>
         <div class="form-group">
-          {{ form.submit(class="btn signup-btn") }}
+          {{ form.submit(class="btn signup-btn update-btn") }}
         </div>
       </form>
     </div>

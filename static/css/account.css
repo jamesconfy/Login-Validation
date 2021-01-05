@@ -1,0 +1,12 @@
+body{
+	line-height: 1;
+	margin: 0;
+	background-color: whitesmoke;
+}
+
+input.update-btn {
+    color: #ffffff;
+    background-color: #d64829;
+    width: 100%;
+    margin-bottom: 10px;
+}

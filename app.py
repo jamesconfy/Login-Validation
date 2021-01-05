@@ -11,7 +11,7 @@ bcrypt = Bcrypt(app)
 app.config['SECRET_KEY'] = '6878efc95d36a4e61b9698c6e8122fee'
 app.permanent_session_lifetime = timedelta(minutes=5)
 
-
+ 
 @app.route('/')
 @app.route('/home')
 def home():
@@ -34,6 +34,11 @@ def signup():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
 
         state = request.form['state']
+        if state == "Akwa_Ibom":
+            state = "Akwa Ibom"
+        if state == "Cross_River":
+            state = "Cross River"
+
         city = request.form['city']
         db.CreateProfile(form.username.data, hashed_password, form.email.data, form.first_name.data, form.last_name.data, form.dob.data, form.address.data, city, state, form.phone_no.data)
         flash('Account Created Successfully', 'success')
