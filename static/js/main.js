@@ -22,7 +22,7 @@ var cityByCategory = {
     Kebbi: [],
     Kogi: ["Okene"],
     Kwara: ["Ilorin"],
-    Lagos: ["Lagos", "Ikorodu", "Ikeja", "Badagry", "Epe"],
+    Lagos: ["Ikorodu", "Ikeja", "Badagry", "Epe"],
     Nasarawa: ["Lafia"],
     Niger: ["Minna", "Mokwa", "Suleja", "Lavun", "Bida"],
     Ogun: ["Abeokuta", "Sagamu", "Obafemi Owode", "Ijebu Ode"],
