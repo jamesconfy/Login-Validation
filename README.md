@@ -13,6 +13,7 @@ You need a text editor with a python extention to startup. If you don't have pyt
 - flask wtforms
 - flask login
 - sqlite3
+- flask email_validators
 
 ### Installation
 You can either use pip to install each individual module or download from source codes which can be gotten from [Python Website](www.python.org). But it is advisable to use pip on the command line.
@@ -23,5 +24,19 @@ $ pip install flask-bcrypt
 $ pip install flask-wtf
 $ pip install flask-login
 $ pip install sqlite3
+$ pip install email_validator
 $ pip install datetime(used for setting cookie time)
 ```
+
+### How To Run Code
+To set up the server, make sure all your packages above are installed or else you could be faced with a lot of errors.
+
+To start it up, pull up the terminal in text editor(or command line) you are currently using, the directory should be set to the directory where the code is located at, and run the code below:
+```sh
+python run.py
+```
+This should start up the server in debug mode but in a lazy environment(not good in production).
+
+Preview of what to expect after successfully running the code:
+
+![Image showing preview of code to see](https://github.com/jamesconfy/Login_Validation/static/assests/login_validation.png)
