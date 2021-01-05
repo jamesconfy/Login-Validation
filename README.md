@@ -5,7 +5,7 @@ Codes to take, validate and store a user using:
 - Bootstrap CSS
 
 ### Setting up workspace
-You need a text editor with a python extention to startup. If you don't have python extention, you can download from [Python](www.python.org) official page. And set it up in the editor you decide to use be it [VScode](code.visualstudio.com), [Atom](atom.io), [Sublime Text](www.sublimetext.com) e.t.c.
+You need a text editor with a python extention to startup. If you don't have python extention, you can download from [Python](www.python.org) official page. And set it up in the editor you decide to use be it [VSCode](code.visualstudio.com), [Atom](atom.io), [Sublime Text](www.sublimetext.com) e.t.c.
 
 ### Python Modules Required
 - Flask
