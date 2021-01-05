@@ -33,7 +33,7 @@ To set up the server, make sure all your packages above are installed or else yo
 
 To start it up, pull up the terminal in text editor(or command line) you are currently using, the directory should be set to the directory where the code is located at, and run the code below:
 ```sh
-python run.py
+python app.py
 ```
 This should start up the server in debug mode but in a lazy environment(not good in production).
 
