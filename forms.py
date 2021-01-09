@@ -1,7 +1,9 @@
+from typing import Optional
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, Regexp, ValidationError
 from db import *
+from datetime import date
 
 class RegistratrionForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
@@ -45,7 +47,7 @@ class RegistratrionForm(FlaskForm):
              #   raise ValidationError('No number starting with +23491')
 
         elif len(numb) == 11:
-            numb1 = numb[0:4]
+            numb1 = numb[0:3]
             if numb1 != "070":
                 if numb1 != "080":
                     if numb1 != "090":
@@ -57,6 +59,10 @@ class RegistratrionForm(FlaskForm):
         elif len(numb) >= 15 or len(numb) <= 10:
             if len(numb) >= 1:
                 raise ValidationError('Number Should be in format +234XXXXXXXXXX or 0XXXXXXXXXX')
+
+    def validate_dob(self, dob):
+        if dob.data >= date.today():
+            raise ValidationError('Enter a date less than ' + str(date.today()))
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])

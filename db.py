@@ -75,5 +75,9 @@ class DB(UserMixin):
         self.db.execute("SELECT * FROM new_personal_info WHERE email = (?)", (email,))
         return self.db.fetchone()
 
+    def GetByPhone(self, phone_no):
+        self.db.execute("SELECT * FROM new_personal_info WHERE phone_no = (?)", (phone_no,))
+        return self.db.fetchone()
+
     def Close(self):
         self.conn.close()
