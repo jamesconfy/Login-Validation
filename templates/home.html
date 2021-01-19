@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block content %}
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand mr-4" href="/">Dashboard</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
             aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,5 +39,43 @@
 {% endfor %}
 {% endif %}
 {% endwith %}
+
+{% if session['user_id'] %}
+<div class="container-fluid starting">
+    <div class="row">
+        <div class="col-sm-12 col-md-2">
+            <div>
+                <p>{{data[1]}}</p>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-8">
+            <!-- <article>No internet, Try: <p>Checking the network cables, modem, and router</p>
+                <p>Reconnecting to Wi-Fi Running Windows Network Diagnostics DNS_PROBE_FINISHED_NO_INTERNET</p>
+            </article> -->
+        </div>
+        <div class="col-sm-12 col-md-2">
+            
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container starting">
+    <div class="row">
+        <div class="col-sm-12 col-md-2">
+            
+        </div>
+        <div class="col-sm-12 col-md-8">
+            <div>
+                <article>
+                    On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.
+                </article>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-2">
+            
+        </div>
+    </div>
+</div>
+{% endif %}
 
 {% endblock content %}

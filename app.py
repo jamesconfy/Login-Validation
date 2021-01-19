@@ -92,29 +92,32 @@ def login():
 
 @app.route('/account', methods=['GET', 'POST'])
 def account():
-    id = request.args['id']
-    db = DB()
-    get_user = db.GetByID(id)
+    if 'user_id' in session:
+        id = request.args['id']
+        db = DB()
+        get_user = db.GetByID(id)
 
-    form = UpdateAccountForm()
-    if form.validate_on_submit():
-        db.UpdateAll(id, form.username.data, form.email.data, form.first_name.data,
-             form.last_name.data, form.dob.data, form.address.data, form.city.data, form.state.data, form.phone_no.data)
-        flash('Account Updated Successfully', 'success')
-        return redirect(url_for('account', id=id))
+        form = UpdateAccountForm()
+        if form.validate_on_submit():
+            db.UpdateAll(id, form.username.data, form.email.data, form.first_name.data,
+                 form.last_name.data, form.dob.data, form.address.data, form.city.data, form.state.data, form.phone_no.data)
+            flash('Account Updated Successfully', 'success')
+            return redirect(url_for('account', id=id))
 
-    elif request.method == 'GET':
-        form.username.data = get_user[1]
-        form.email.data = get_user[3]
-        form.first_name.data = get_user[4]
-        form.last_name.data = get_user[5]
-        form.dob.data = get_user[6]
-        form.address.data = get_user[7]
-        form.city.data = get_user[8]
-        form.state.data = get_user[9]
-        form.phone_no.data = get_user[10]
-
-    return render_template('account.html', title='Account', data=get_user, form=form)
+        elif request.method == 'GET':
+            form.username.data = get_user[1]
+            form.email.data = get_user[3]
+            form.first_name.data = get_user[4]
+            form.last_name.data = get_user[5]
+            form.dob.data = get_user[6]
+            form.address.data = get_user[7]
+            form.city.data = get_user[8]
+            form.state.data = get_user[9]
+            form.phone_no.data = get_user[10]
+        return render_template('account.html', title='Account', data=get_user, form=form)
+    
+    else:
+        return redirect(url_for('login'))
 
 
 @app.route('/delete_profile')
