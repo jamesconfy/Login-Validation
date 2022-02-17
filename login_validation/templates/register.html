@@ -118,7 +118,8 @@
                             </div>
                             <div class="form-group">
                                 {{ form.state.label(class="form-control-label") }}
-                                <select class="custom-select" id="inputGroupSelect01" name="state" onChange="changecat(this.value)">
+                                {{ form.state(class="form-control", onChange=("changecat(this.value)")) }}
+                                <!-- <select class="custom-select" id="inputGroupSelect01" name="state" onChange="changecat(this.value)">
                                     <option selected>None....</option>
                                     <option value="Abia">Abia</option>
                                     <option value="Adamawa">Adamawa</option>
@@ -158,7 +159,7 @@
                                     <option value="Yobe">Yobe</option>
                                     <option value="Zamfara">Zamfara</option>
                                     <option value="Abuja">Federal Capital Territory (Abuja)</option>
-                                </select>
+                                </select> -->
                             </div>
                             <div class="form-group">
                                 {{ form.city.label(class="form-control-label") }}

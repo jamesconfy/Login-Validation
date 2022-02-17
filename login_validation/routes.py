@@ -21,15 +21,9 @@ def register():
         if form.validate_on_submit():
             hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
 
-            state = request.form['state']
-            if state == "Akwa_Ibom":
-                state = "Akwa Ibom"
-            if state == "Cross_River":
-                state = "Cross River"
-
-            city = request.form['city']
+            # city = request.form['city']
             user = User(username=form.username.data, password=hashed_password, email=form.email.data, first_name=form.first_name.data,
-                        last_name=form.last_name.data, dob=form.dob.data, address=form.address.data, city=city, state=state, phone_no=form.phone_no.data)
+                        last_name=form.last_name.data, dob=form.dob.data, address=form.address.data, city=form.city.data, state=form.state.data, phone_no=form.phone_no.data)
             db.session.add(user)
             db.session.commit()
             flash('Account Created Successfully', 'success')
