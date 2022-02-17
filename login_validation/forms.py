@@ -1,11 +1,11 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, DateField, SelectField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, Regexp, ValidationError
+from wtforms.validators import DataRequired, Length, Email, EqualTo, Regexp, ValidationError, Optional
 from flask_login import current_user
 from datetime import date
 from login_validation.models import User
 
-listOfState = ["None....", "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River", "Delta", "Ebonyi", "Edo",  "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun",  "Oyo", "Plateau", "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "Abuja"]
+listOfState = ["", "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River", "Delta", "Ebonyi", "Edo",  "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun",  "Oyo", "Plateau", "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "Abuja"]
 
 class RegistratrionForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
@@ -14,11 +14,11 @@ class RegistratrionForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Password Must Match')])
     first_name = StringField('First Name', validators=[DataRequired()])
     last_name = StringField('Last Name', validators=[DataRequired()])
-    dob = DateField('Date of Birth')
-    address = StringField('Address')
-    city = StringField('City')
+    dob = DateField('Date of Birth', validators=[Optional()])
+    address = StringField('Address', validators=[Optional()])
+    city = StringField('City', validators=[Optional()])
     state = SelectField('State', choices=listOfState, validators=[DataRequired()], validate_choice=True)
-    phone_no = StringField('Phone Number', validators=[Regexp(regex="^((\+234|0)[7-9][0-1]\d{8}$)|^()", message="Invalid Number")])
+    phone_no = StringField('Phone Number', validators=[Optional(), Regexp(regex="^((\+234|0)[7-9][0-1]\d{8}$)|^()", message="Invalid Number")])
     submit = SubmitField('Sign Up')
 
     def validate_username(self, username):

@@ -1,7 +1,7 @@
 var cityByCategory = {
     "Abia": ["Aba", "Umuahia"],
     "Adamawa": ["Yola", "Mubi", "Jimeta"],                  
-    "Akwa_Ibom": ["Uyo", "Ikot Ekpene"],
+    "Akwa Ibom": ["Uyo", "Ikot Ekpene"],
     "Anambra": ["Awka", "Onitsha", "Okpoko"],
     "Bauchi": ["Bauchi"],
     "Bayelsa": [],
