@@ -1,8 +1,11 @@
 from flask import request, render_template, redirect, url_for, flash
+from flask import current_app
+from login_validation import db, bcrypt
 from flask_login import login_required, logout_user, current_user, login_user
-from login_validation import app, db, bcrypt
 from login_validation.forms import RegistratrionForm, LoginForm, UpdateAccountForm
 from login_validation.models import User
+
+app = current_app
 
 @app.route('/')
 @app.route('/home')
@@ -67,6 +70,7 @@ def account():
             current_user.city = form.city.data
             current_user.state = form.state.data
             current_user.phone_no = form.phone_no.data
+            db.session.commit()
             flash('Account Updated Successfully', 'success')
         return redirect(url_for('account'))
 

@@ -70,7 +70,7 @@ class UpdateAccountForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     first_name = StringField('First Name', validators=[DataRequired()])
     last_name = StringField('Last Name', validators=[DataRequired()])
-    dob = StringField('Date of Birth')
+    dob = DateField('Date of Birth', validators=[Optional()])
     address = StringField('Address')
     city = StringField('City')
     state = StringField('State')
