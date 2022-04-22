@@ -13,6 +13,7 @@ class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY')
     TESTING = False
     DEVELOPMENT = True
+    SQLALCHEMY_DATABASE_URI = "sqlite://"
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
     
 class ProdConfig(Config):
